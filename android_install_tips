@@ -1,0 +1,9 @@
+#!/bin/bash
+# go to sdk/platfrom-tools
+
+sudo ./adb kill-server
+sudo service udev stop
+sudo ./adb start-server
+sudo ./adb devices
+
+ln -s /usr/lib/jni/libswt-* ~/.swt/lib/linux/x86_64/

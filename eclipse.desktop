@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Eclipse
+Exec=/usr/local/adt-bundle-linux-x86_64/eclipse/eclipse %U
+Terminal=false
+Icon=/usr/local/adt-bundle-linux-x86_64/eclipse_icon.png
+

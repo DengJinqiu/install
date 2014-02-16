@@ -1,0 +1,85 @@
+#!/bin/bash
+
+YELLOW="\033[1;33m"
+RED="\033[0;31m" ENDCOLOR="\033[0m"
+
+echo -e $YELLOW"Adding JDK"$ENDCOLOR
+sudo add-apt-repository ppa:webupd8team/java 
+
+echo -e $YELLOW"Update Source"$ENDCOLOR
+sudo apt-get update
+
+echo -e $YELLOW"Adding texlive, transmission, vim, gnome-tweak-tool, terminator, chromium browser, feh, git, wget, curl, zsh, flash plugin, mplayer, gimp, java SDK, disk utility, ia32-libs"$ENDCOLOR
+sudo apt-get install texlive texlive-xetex texlive-latex-extra texlive-latex-recommended transmission vim-gnome terminator chromium-browser feh git wget curl zsh gimp flashplugin-installer mplayer oracle-java7-installer gnome-disk-utility ia32-libs
+
+echo -e $YELLOW"config vim"$ENDCOLOR
+sudo rm ~/.vimrc
+cp config/vimrc ~/.vimrc
+sudo chown jinqiu:jinqiu ~/.vimrc
+sudo chmod 644 ~/.vimrc
+
+echo -e $YELLOW"config terminator"$ENDCOLOR
+sudo rm -r ~/.config/terminator
+mkdir -p ~/.config/terminator
+cp config/terminator_config ~/.config/terminator/config
+sudo chown jinqiu:jinqiu ~/.config/terminator/config
+sudo chmod 644 ~/.config/terminator/config
+
+echo -e $YELLOW"config git"$ENDCOLOR
+sudo rm ~/.gitconfig
+cp config/gitconfig ~/.gitconfig
+sudo chown jinqiu:jinqiu ~/.gitconfig
+sudo chmod 644 ~/.vimrc ~/.gitconfig
+
+echo -e $YELLOW"Installing oh my zsh"$ENDCOLOR
+curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+
+echo -e $YELLOW"config zsh"$ENDCOLOR
+chsh -s /bin/zsh
+
+echo -e $YELLOW"Installing wqy-microhei"$ENDCOLOR
+tar -xf wqy-microhei-0.2.0-beta.tar.gz
+sudo rm -r /usr/share/fonts/wqy-microhei
+sudo mv wqy-microhei /usr/share/fonts
+sudo chmod 555 /usr/share/fonts/wqy-microhei/*
+cd /usr/share/fonts/wqy-microhei
+sudo mkfontscale
+sudo mkfontdir
+sudo fc-cache -fv
+cd -
+
+echo -e $YELLOW"Installing Latin-Modern-Roman"$ENDCOLOR
+tar -xf Latin-Modern-Roman.tar.gz
+sudo rm -r /usr/share/fonts/Latin-Modern-Roman
+sudo mv Latin-Modern-Roman /usr/share/fonts
+sudo chmod 555 /usr/share/fonts/Latin-Modern-Roman/*
+cd /usr/share/fonts/Latin-Modern-Roman
+sudo mkfontscale
+sudo mkfontdir
+sudo fc-cache -fv
+cd -
+
+echo -e $YELLOW"Installing eclipse"$ENDCOLOR
+export version=20131030
+wget "http://dl.google.com/android/adt/adt-bundle-linux-x86_64-$version.zip"
+unzip adt-bundle-linux-x86_64-$version.zip
+sudo rm -r /usr/local/adt-bundle-linux-x86_64
+sudo mv adt-bundle-linux-x86_64-$version /usr/local/adt-bundle-linux-x86_64
+sudo chmod -R 777 /usr/local/adt-bundle-linux-x86_64
+sudo chown -R jinqiu:jinqiu /usr/local/adt-bundle-linux-x86_64
+sudo cp eclipse_icon.png /usr/local/adt-bundle-linux-x86_64
+sudo cp eclipse.desktop /usr/share/applications/
+sudo chmod 644 /usr/share/applications/eclipse.desktop
+rm adt-bundle-linux-x86_64-$version.zip
+
+echo -e $YELLOW"Copy SSH key"$ENDCOLOR
+sudo rm -r ~/.ssh
+cp -r ssh ~/.ssh
+sudo chown -R jinqiu:jinqiu ~/.ssh
+sudo chmod 700 ~/.ssh/id_rsa
+sudo chmod 755 ~/.ssh
+
+echo -e $YELLOW"Upgrade"$ENDCOLOR
+sudo apt-get upgrade
+
+echo -e $YELLOW"finish"$ENDCOLOR

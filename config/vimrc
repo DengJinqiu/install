@@ -1,0 +1,10 @@
+:set tabstop    =4       " Insert 4 spaces for a tab
+:set shiftwidth =4       " Insert 4 for indentation
+:set expandtab           " Insert space characters whenever the tab key is pressed
+:set number              " Show line number
+:set cursorline          " Hight light the current line
+:set clipboard  =unnamed " Setup the system clipboard
+:set autoindent          " Copy the indent from the previous line
+:set hlsearch            " hight light the search result
+:set t_Co       =256     " 256 color
+colors koehler           " color schemes

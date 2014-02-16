@@ -9,8 +9,8 @@ sudo add-apt-repository ppa:webupd8team/java
 echo -e $YELLOW"Update Source"$ENDCOLOR
 sudo apt-get update
 
-echo -e $YELLOW"Adding texlive, transmission, vim, gnome-tweak-tool, terminator, chromium browser, feh, git, wget, curl, zsh, flash plugin, mplayer, gimp, java SDK, disk utility, ia32-libs, postgresql"$ENDCOLOR
-sudo apt-get install texlive texlive-xetex texlive-latex-extra texlive-latex-recommended transmission vim-gnome terminator chromium-browser feh git wget curl zsh gimp flashplugin-installer mplayer oracle-java7-installer gnome-disk-utility ia32-libs postgresql
+echo -e $YELLOW"trash-cli Adding texlive, transmission, vim, gnome-tweak-tool, terminator, chromium browser, feh, git, wget, curl, zsh, flash plugin, mplayer, gimp, java SDK, disk utility, ia32-libs, postgresql"$ENDCOLOR
+sudo apt-get install trash-cli texlive texlive-xetex texlive-latex-extra texlive-latex-recommended transmission vim-gnome terminator chromium-browser feh git wget curl zsh gimp flashplugin-installer mplayer oracle-java7-installer gnome-disk-utility ia32-libs postgresql
 
 echo -e $YELLOW"config vim"$ENDCOLOR
 sudo rm ~/.vimrc

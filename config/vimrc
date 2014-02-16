@@ -8,3 +8,5 @@
 :set hlsearch            " hight light the search result
 :set t_Co       =256     " 256 color
 colors koehler           " color schemes
+
+filetype plugin on

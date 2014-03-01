@@ -10,3 +10,5 @@
 colors koehler           " color schemes
 
 filetype plugin on
+
+au BufRead,BufNewFile *.md set filetype=markdown
